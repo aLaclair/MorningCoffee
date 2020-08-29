@@ -1,0 +1,16 @@
+.login-block {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-btn-show {
+    width: 30%;
+    height: 10%;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(228, 207, 181);
+}
+.login-btn-hide{
+    display: none;
+}
