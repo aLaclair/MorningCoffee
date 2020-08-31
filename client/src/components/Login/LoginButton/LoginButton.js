@@ -1,22 +1,16 @@
 import React, { Component } from 'react'
 import './style.css'
 import LoginModal from '../LoginModal/LoginModal'
+import axios from 'axios'
 
 class LoginButton extends Component {
-    state = {
-        formShow: 'form-hide',
-        buttonShow: 'login-btn-show'
-    }
-
-    handleShow = () => {
-        this.setState({formShow: 'form-show', buttonShow: 'login-btn-hide'})
-    }
-
+    
     render() {
         return (
             <div className='login-block'>
-                <button className={this.state.buttonShow} onClick={this.handleShow}>Login</button>
-                <LoginModal show={this.state.formShow}/>
+                <button className={this.props.state.buttonShow} onClick={this.props.handleShow}>Login</button>
+                <LoginModal show={this.props.state.formShow} handleLogin={this.props.handleLogin} handleCreateUser={this.props.handleCreateUser}
+                onChange={this.props.handleOnChange} error={this.props.state.error}/>
             </div>
         )
     }
