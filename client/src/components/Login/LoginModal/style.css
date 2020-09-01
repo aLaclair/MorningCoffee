@@ -6,7 +6,7 @@
     width: 90vw;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 0 auto;
     align-items: center;
     background-color: rgb(133, 133, 133);

@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './style.css'
 
-const AddBlock = () => {
-    return (
-        <div className='add-block'>
-            <button className='add-btn'>+</button>
-        </div>
-    )
+class AddBlock extends Component {
+    componentDidMount() {
+        this.props.mount()
+    }
+    render() {
+        return (
+            <div className='add-block'>
+                <button className='add-btn'>+</button>
+            </div>
+        )
+    }
 }
 export default AddBlock
