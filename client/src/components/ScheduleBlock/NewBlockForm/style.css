@@ -1,0 +1,55 @@
+#new-block {
+    position: relative;
+    background-color: rgb(237, 230, 223);
+    color: rgb(15,15,15);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 80vw;
+    border-radius: 5px;
+    padding: 5px 10px 0;
+    height: 18vh;
+    margin-bottom: 10px;
+}
+#event-name{
+    width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#event-input, #desc-input{
+    margin-left: 0;
+    width: 70%;
+}
+#desc {
+    width: 100%;
+}
+.end-time {
+    position: absolute;
+    bottom: 1vh;
+    right: 3vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#end-label {
+    width: 23%;
+}
+.add-schedule-block {
+    position: absolute;
+    left: 6vw;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: white;
+    height: 65%;
+}
+select{
+    height: 50%;
+}
+.close-form{
+    font-weight: bold;
+    border: none;
+    background-color: inherit;
+    position: absolute;
+    top: 1vh;
+    right: 3vw;
+}

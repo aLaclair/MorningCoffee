@@ -1,0 +1,25 @@
+.schedule-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80vw;
+    border-radius: 5px;
+    background-color: rgb(237, 230, 223);
+    color: rgb(15,15,15);
+    margin: 0 auto 10px;
+    padding: 5px 10px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#event{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    width: 100%;
+    margin: 0;
+    flex-wrap: wrap;
+    align-self: flex-start;
+}
+#end-time {
+    text-align: right;
+    font-size: 16px;
+    justify-content: flex-end;
+}
