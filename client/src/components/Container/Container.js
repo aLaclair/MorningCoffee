@@ -14,12 +14,14 @@ class Container extends Component {
         buttonShow: 'login-btn-show',
         newBlockShow: 'form-hide',
         error: null,
+        eventErr: null,
         userId: '',
         username: '',
         password: '',
         event: '',
         endTime: '0100',
-        description: '',
+        endTimeTOD: 'AM',
+        description: null,
         loggedIn: false,
         userData: []
     }
@@ -43,7 +45,72 @@ class Container extends Component {
     }
 
     handleTimeChange = (e) => {
+        let name = e.target.name
+        switch (name) {
+            case 'hour':
+                let newTime = this.state.endTime.split('')
+                let time = e.target.value
+                if (this.state.endTimeTOD === 'AM') {
+                    if (time === '12') {
+                        time = '00'
+                    }
+                    time = time.split('')
+                    newTime[0] = time[0]
+                    newTime[1] = time[1]
+                } else {
+                    if (time !== '12') {
+                        time = (parseInt(time) + 12).toString()
+                    }
+                    time = time.split('')
+                    newTime[0] = time[0]
+                    newTime[1] = time[1]
+                }
+                newTime = newTime.join('')
+                this.setState({endTime: newTime})
+                break;
+            
+            case 'minutes':
+                let newMinutes = this.state.endTime.split('')
+                let minutes = e.target.value.split('')
+                newMinutes[2] = minutes[0]
+                newMinutes[3] = minutes[1]
+                newMinutes = newMinutes.join('')
 
+                this.setState({endTime: newMinutes})
+                break;
+
+            case 'TOD':
+                this.setState({endTimeTOD: e.target.value})
+                let checkTime = this.state.endTime.split('')
+                let hours = parseInt(checkTime.slice(0,2).join(''))
+                if (e.target.value === 'AM' && hours > 11) {
+                    hours = hours - 12
+                    if (hours < 10) {
+                        hours = `0${hours}`.split('')
+                    } else {
+                        hours = hours.toString().split('')
+                    }
+                    checkTime[0] = hours[0]
+                    checkTime[1] = hours[1]
+                    
+                } else if (e.target.value === 'PM' && hours < 12) {
+                    hours = (hours + 12).toString().split('')
+                    checkTime[0] = hours[0]
+                    checkTime[1] = hours[1]
+                }
+                this.setState({endTime: checkTime.join('')})
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    handleAddEvent = () => {
+        axios.post('https://morning-coffee-backend-austin.herokuapp.com/addScheduleBlock', 
+        {userId: this.state.userId, 
+        event: this.state.event
+        })
     }
 
     handleLogin = () => {
@@ -92,7 +159,7 @@ class Container extends Component {
                 {this.state.userData.map(b => (
                     <ScheduleBlock  key={b._id} data={b}/>
                 ))}
-                <NewScheduleBlock show={this.state.newBlockShow} close={this.handleFormClose} onchange={this.handleOnChange}/>
+                <NewScheduleBlock show={this.state.newBlockShow} close={this.handleFormClose} onchange={this.handleOnChange} timeChange={this.handleTimeChange}/>
                 <AddBlock user={this.state.userId} mount={this.getUserData} click={this.handleAddClick}/>
                 </>
             )
