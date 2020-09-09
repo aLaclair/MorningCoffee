@@ -41,10 +41,11 @@ class NewScheduleBlock extends Component {
                         <option value='AM'>AM</option>
                         <option value='PM'>PM</option>
                     </select>
-                    <button className='add-schedule-block'>Add Event</button>
+                    
+                    <button className='add-schedule-block' onClick={this.props.onSubmit}>Add Event</button>
                 </div>
                 <button className='close-form' onClick={this.props.close}>X</button>
-                
+                <p id='form-error'>{this.props.error}</p>
             </div>
         )
     }

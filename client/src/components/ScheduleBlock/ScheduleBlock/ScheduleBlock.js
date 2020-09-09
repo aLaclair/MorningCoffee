@@ -6,8 +6,9 @@ class ScheduleBlock extends Component {
 handleDescription = () => {
     if(this.props.data.description) {
         return (
-            <div className='schedule-block'>
+            <div className='schedule-block desc'>
                 <h1 id='event'>{this.props.data.event}</h1>
+                <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
                 <p id='desc'>{this.props.data.description}</p>
                 <p id='end-time'>{this.handleTimeConversion()}</p>
             </div>
@@ -16,22 +17,32 @@ handleDescription = () => {
         return (
             <div className='schedule-block'>
                 <h1 id='event'>{this.props.data.event}</h1>
+                <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
                 <p id='end-time'>{this.handleTimeConversion()}</p>
             </div>
         )
     }
 }
 handleTimeConversion = () => {
-    let endTime = this.props.data.endTime.toString()
-    endTime = endTime.split('')
-    let firstHalf = parseInt(endTime.slice(0, 2).join(''))
-    let secondHalf = endTime.slice(2, 5).join('')
-    if(firstHalf > 12) {
-        firstHalf -= 12
-        return `Finish @ ${firstHalf}:${secondHalf} PM`
+    let firstHalf = this.props.data.endTime.slice(0,2)
+    let secondHalf = this.props.data.endTime.slice(2,5)
+    if(firstHalf > 11) {
+        if (firstHalf === `12`) {
+            return `Finish @ ${firstHalf}:${secondHalf} PM`
+        } else {
+            firstHalf -= 12
+            return `Finish @ ${firstHalf}:${secondHalf} PM`
+        }
     } else {
-        return `${firstHalf}:${secondHalf} AM`
+        if (firstHalf === `00`) {
+            return `Finish @ 12:${secondHalf} AM`
+        } else if (firstHalf === '10' || firstHalf === '11') {
+            return `Finish @ ${firstHalf}:${secondHalf} AM`
+        }
+        return `Finish @ ${firstHalf[1]}:${secondHalf} AM`
     }
+
+    
     
 }
     

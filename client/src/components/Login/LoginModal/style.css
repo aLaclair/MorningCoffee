@@ -15,7 +15,9 @@
     color: rgb(231, 231, 231)
 }
 input {
-    margin-left: 20px;
+    padding: 2.5px 10px;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 15px;
 }
 hr {
     width: 100%;

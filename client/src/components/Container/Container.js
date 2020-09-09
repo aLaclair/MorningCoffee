@@ -15,6 +15,7 @@ class Container extends Component {
         newBlockShow: 'form-hide',
         error: null,
         eventErr: null,
+        addBlock: 'add-block',
         userId: '',
         username: '',
         password: '',
@@ -35,13 +36,12 @@ class Container extends Component {
         this.setState({formShow: 'form-show', buttonShow: 'login-btn-hide'})
     }
     handleFormClose = () => {
-        this.setState({newBlockShow: 'form-hide'})
+        this.setState({newBlockShow: 'form-hide', eventErr: null, addBlock:'add-block'})
     }
 
     handleOnChange = (e) => {
         let name = e.target.name
         this.setState({[name]: e.target.value})
-        console.log(this.state)
     }
 
     handleTimeChange = (e) => {
@@ -107,10 +107,32 @@ class Container extends Component {
     }
 
     handleAddEvent = () => {
-        axios.post('https://morning-coffee-backend-austin.herokuapp.com/addScheduleBlock', 
-        {userId: this.state.userId, 
-        event: this.state.event
-        })
+        if (this.state.event !== '') {
+            if (this.state.description === null) {
+                axios.post('https://morning-coffee-backend-austin.herokuapp.com/addScheduleBlock', {
+                    userId: this.state.userId,
+                    event: this.state.event,
+                    endTime: this.state.endTime
+                }).then(response => {
+                    let data = this.state.userData
+                    data.push(response.data)
+                    this.setState({userData: data, eventErr: null, newBlockShow: 'form-hide', addBlock: 'add-block'})
+                })
+            } else {
+                axios.post('https://morning-coffee-backend-austin.herokuapp.com/addScheduleBlock', {
+                    userId: this.state.userId,
+                    event: this.state.event,
+                    description: this.state.description,
+                    endTime: this.state.endTime
+                }).then(response => {
+                    let data = this.state.userData
+                    data.push(response.data)
+                    this.setState({userData: data, eventErr: null, newBlockShow: 'form-hide', addBlock:'add-block'})
+                })
+            }
+        } else {
+            this.setState({eventErr: 'Please add an event'})
+        }
     }
 
     handleLogin = () => {
@@ -157,10 +179,11 @@ class Container extends Component {
             return (
                 <>
                 {this.state.userData.map(b => (
-                    <ScheduleBlock  key={b._id} data={b}/>
+                    <ScheduleBlock  key={b._id} data={b} delete={this.handleDelete}/>
                 ))}
-                <NewScheduleBlock show={this.state.newBlockShow} close={this.handleFormClose} onchange={this.handleOnChange} timeChange={this.handleTimeChange}/>
-                <AddBlock user={this.state.userId} mount={this.getUserData} click={this.handleAddClick}/>
+                <NewScheduleBlock show={this.state.newBlockShow} close={this.handleFormClose} onchange={this.handleOnChange} timeChange={this.handleTimeChange}
+                onSubmit={this.handleAddEvent} error={this.state.eventErr}/>
+                <AddBlock user={this.state.userId} mount={this.getUserData} click={this.handleAddClick} hide={this.state.addBlock}/>
                 </>
             )
         } else {
@@ -178,7 +201,23 @@ class Container extends Component {
         })
     }
     handleAddClick = () => {
-        this.setState({newBlockShow: 'form-show'})
+        this.setState({newBlockShow: 'form-show', addBlock: 'form-hide'})
+    }
+
+    handleDelete = (e) => {
+       let id = e.target.id
+       axios.get(`https://morning-coffee-backend-austin.herokuapp.com/delete/block/${id}`)
+       .then(response => {
+           let newData = this.state.userData
+           for (let i = 0; i < this.state.userData.length; i++) {
+               if (this.state.userData[i]._id === id) {
+                   newData.splice(i, 1)
+                   this.setState({userData: newData})
+               }
+           }
+       }).catch(err => {
+           console.log(err)
+       })
     }
 
     componentDidMount() {

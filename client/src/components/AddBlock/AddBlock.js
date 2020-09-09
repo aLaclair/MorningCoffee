@@ -7,7 +7,7 @@ class AddBlock extends Component {
     }
     render() {
         return (
-            <div className='add-block'>
+            <div className={this.props.hide}>
                 <button className='add-btn'onClick={this.props.click}>+</button>
             </div>
         )

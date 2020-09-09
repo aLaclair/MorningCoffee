@@ -15,6 +15,9 @@
     font-weight: bold;
 }
 #event-input, #desc-input{
+    padding: 2.5px 10px;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 15px;
     margin-left: 0;
     width: 70%;
 }
@@ -52,4 +55,8 @@ select{
     position: absolute;
     top: 1vh;
     right: 3vw;
+}
+#form-error {
+    margin: 0;
+    color: rgb(194, 0, 0);
 }
