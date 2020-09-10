@@ -1,5 +1,12 @@
-.form-hide {
-    display: none;
+.form-hide, .form-hide > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    align-items: center;
+    height: 0vh;
+    opacity: 0;
+    transition: 0.3s;
 }
 .form-show {
     height: 40vh;
@@ -12,7 +19,8 @@
     background-color: rgb(133, 133, 133);
     border-radius: 7px;
     padding-bottom: 20px;
-    color: rgb(231, 231, 231)
+    color: rgb(231, 231, 231);
+    transition: 0.3s;
 }
 input {
     padding: 2.5px 10px;

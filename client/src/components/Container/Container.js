@@ -136,14 +136,13 @@ class Container extends Component {
     }
 
     handleLogin = () => {
-        fetch(`https://morning-coffee-backend-austin.herokuapp.com/findUser/${this.state.username}`)
-        .then(res => res.json())
+        axios.get(`https://morning-coffee-backend-austin.herokuapp.com/findUser/${this.state.username}`)
         .then((result) => {
             if (result.error) {
                 this.setState({error: result.error})
             } else {
                 this.setState({error: null})
-                if (this.state.password === result.password) {
+                if (this.state.password === result.data.password) {
                     this.setState({formShow: 'form-hide', loggedIn: true, userId: result._id})
                     sessionStorage.setItem('userId', result._id)
                 } else {
@@ -181,9 +180,9 @@ class Container extends Component {
                 {this.state.userData.map(b => (
                     <ScheduleBlock  key={b._id} data={b} delete={this.handleDelete}/>
                 ))}
+                <AddBlock user={this.state.userId} mount={this.getUserData} click={this.handleAddClick} hide={this.state.addBlock}/>
                 <NewScheduleBlock show={this.state.newBlockShow} close={this.handleFormClose} onchange={this.handleOnChange} timeChange={this.handleTimeChange}
                 onSubmit={this.handleAddEvent} error={this.state.eventErr}/>
-                <AddBlock user={this.state.userId} mount={this.getUserData} click={this.handleAddClick} hide={this.state.addBlock}/>
                 </>
             )
         } else {
@@ -201,7 +200,7 @@ class Container extends Component {
         })
     }
     handleAddClick = () => {
-        this.setState({newBlockShow: 'form-show', addBlock: 'form-hide'})
+        this.setState({newBlockShow: 'form-show', addBlock: 'form-hide',})
     }
 
     handleDelete = (e) => {

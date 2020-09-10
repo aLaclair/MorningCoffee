@@ -6,7 +6,7 @@ class ScheduleBlock extends Component {
 handleDescription = () => {
     if(this.props.data.description) {
         return (
-            <div className='schedule-block desc'>
+            <div className='schedule-block desc' data-aos='fade-zoom-in'>
                 <h1 id='event'>{this.props.data.event}</h1>
                 <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
                 <p id='desc'>{this.props.data.description}</p>
@@ -15,7 +15,7 @@ handleDescription = () => {
         )
     } else {
         return (
-            <div className='schedule-block'>
+            <div className='schedule-block' data-aos='fade-zoom-in'>
                 <h1 id='event'>{this.props.data.event}</h1>
                 <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
                 <p id='end-time'>{this.handleTimeConversion()}</p>

@@ -1,17 +1,23 @@
+@font-face {
+    src: url('../../Container/KumbhSans-Regular.ttf');
+    font-family: body;
+}
 #new-block {
     position: relative;
     background-color: rgb(237, 230, 223);
     color: rgb(15,15,15);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: body;
     width: 80vw;
     border-radius: 5px;
     padding: 5px 10px 0;
-    height: 18vh;
+    height: 23vh;
     margin-bottom: 10px;
+    transition-property: opacity;
+    transition: 0.3s;
 }
-#event-name{
+#event-name {
     width: 100%;
-    margin-bottom: 5px;
+    margin: 5px 0px;
     font-weight: bold;
 }
 #event-input, #desc-input{
@@ -21,9 +27,11 @@
     margin-left: 0;
     width: 70%;
 }
-#desc {
+#desc{
     width: 100%;
+    margin: 5px 0px;
 }
+
 .end-time {
     position: absolute;
     bottom: 1vh;
@@ -34,7 +42,7 @@
     justify-content: flex-end;
 }
 #end-label {
-    width: 23%;
+    width: 25%;
 }
 .add-schedule-block {
     position: absolute;
@@ -57,6 +65,6 @@ select{
     right: 3vw;
 }
 #form-error {
-    margin: 0;
+    margin: 2%;
     color: rgb(194, 0, 0);
 }
