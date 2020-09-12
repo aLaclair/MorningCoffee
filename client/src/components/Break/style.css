@@ -2,8 +2,9 @@
     margin: 0 auto;
     width: 85vw;
     height: 8vh;
-    color: rgb(180, 180, 180);
+    color: rgb(131, 131, 131);
     letter-spacing: 1px;
+    font-weight: bold;
 }
 @media screen and (min-width:1080px) {
     .break {

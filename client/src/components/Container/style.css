@@ -6,4 +6,6 @@
     width: 100vw;
     height: 100vh;
     font-family: body;
+    background-color: rgb(238, 233, 226);
+    background-image: url('./skulls.png');
 }
