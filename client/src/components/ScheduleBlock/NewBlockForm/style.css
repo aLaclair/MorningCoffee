@@ -44,8 +44,8 @@
 #end-label {
     position: absolute;
     margin: 0;
-    bottom: 0px;
-    right: 130px;
+    bottom: 3vh;
+    right: 30px;
 }
 .add-schedule-block {
     position: absolute;
@@ -91,5 +91,9 @@ select {
     }
     select:hover {
         background-color: rgb(180, 180, 180);
+    }
+    #end-label{
+        bottom: 0px;
+        right: 130px;
     }
 }
