@@ -10,7 +10,13 @@
     border: none;
     background-color: inherit;
     font-size: 22px;
+    font-weight: bold;
 }
 .add-btn:focus{
     outline: 2px solid burlywood
+}
+@media screen and (min-width: 1080px) {
+    .add-btn:hover {
+        color: darkslategray;
+    }
 }

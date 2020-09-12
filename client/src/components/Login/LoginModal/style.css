@@ -44,6 +44,7 @@ hr {
     background-color: white;
     border: none;
     border-radius: 5px;
+    transition: 0.3s;
 }
 .create {
     width: 40%;
@@ -51,8 +52,19 @@ hr {
     background-color: white;
     border: none;
     border-radius: 5px;
+    transition: 0.3s;
 }
 #tip {
     width: 90%;
     text-align: center;
+}
+@media screen and (min-width:1080px) {
+    .form-show {
+        width: 40vw;
+        height: 30vh;
+    }
+    .login:hover, .create:hover {
+        background-color: rgb(228, 207, 181);
+        border-radius: 100px;
+    }
 }

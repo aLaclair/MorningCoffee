@@ -143,8 +143,9 @@ class Container extends Component {
             } else {
                 this.setState({error: null})
                 if (this.state.password === result.data.password) {
-                    this.setState({formShow: 'form-hide', loggedIn: true, userId: result._id})
-                    sessionStorage.setItem('userId', result._id)
+                    this.setState({formShow: 'form-hide', loggedIn: true, userId: result.data._id})
+                    sessionStorage.setItem('userId', result.data._id)
+                    console.log(result.data._id)
                 } else {
                     this.setState({error: 'Password is incorrect'})
                 }
@@ -159,6 +160,7 @@ class Container extends Component {
                 if (response.data.username) {
                     this.setState({loggedIn: true, userId: response.data._id})
                     sessionStorage.setItem('userId', response.data._id)
+                    console.log(this.state.userId)
                 } else {
                     this.setState({error: 'An error occured, please try again'})
                 }
@@ -227,7 +229,6 @@ class Container extends Component {
             <Navbar />
             <Break />
             {this.isLoggedin()}
-            
         </div>)
     }
 }

@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <div className='nav'>
             <img src='./cafe.svg' alt='img' />
-            <h1>MorningCoffee</h1>
+            <h1 id='title'>MorningCoffee</h1>
         </div>
     )
 }

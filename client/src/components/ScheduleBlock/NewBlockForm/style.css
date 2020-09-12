@@ -35,36 +35,61 @@
 .end-time {
     position: absolute;
     bottom: 1vh;
-    right: 3vw;
+    right: 10px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 #end-label {
-    width: 25%;
+    position: absolute;
+    margin: 0;
+    bottom: 0px;
+    right: 130px;
 }
 .add-schedule-block {
     position: absolute;
-    left: 6vw;
+    left: 20px;
+    bottom: -2.5px;
     border: none;
     border-radius: 10px;
     font-weight: bold;
     background-color: white;
-    height: 65%;
+    height: 150%;
+    transition: 0.2s;
 }
-select{
-    height: 50%;
+select {
+    border: none;
+    transition: 0.2s;
 }
 .close-form{
     font-weight: bold;
     border: none;
+    width: 25px;
+    height: 25px;
     background-color: inherit;
+    border-radius: 50%;
     position: absolute;
     top: 1vh;
-    right: 3vw;
+    right: 10px;
+    transition: 0.2s;
 }
 #form-error {
     margin: 2%;
     color: rgb(194, 0, 0);
+}
+
+@media screen and (min-width: 1080px) {
+    #new-block {
+        width: 40vw;
+    }
+    .close-form:hover {
+        background-color: white;
+    }
+    .add-schedule-block:hover {
+        background-color: rgb(180, 180, 180);
+    }
+    select:hover {
+        background-color: rgb(180, 180, 180);
+    }
 }

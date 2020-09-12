@@ -5,3 +5,8 @@
     color: rgb(180, 180, 180);
     letter-spacing: 1px;
 }
+@media screen and (min-width:1080px) {
+    .break {
+        width: 60vw;
+    }
+}

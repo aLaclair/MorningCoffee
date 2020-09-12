@@ -50,4 +50,14 @@
     height: 5vh;
     background: none;
     border: none;
+    transition: 0.3s;
+}
+
+@media screen and (min-width: 1080px) {
+    .schedule-block {
+        width: 40vw;
+    }
+    .fa-trash:hover {
+        color: darkred;
+    }
 }
