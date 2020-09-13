@@ -1,5 +1,5 @@
 # MorningCoffee
-Thank you for viewing my app. MorningCoffee is a full-stack application that is designed to help you plan your day by adding blocks of information with a specified endtime <a href='http://morningcoffee.thelaclair.com' target='_blank'>MorningCoffee - Live</a>
+Thank you for viewing my app. MorningCoffee is a full-stack application that is designed to help you plan your day by adding blocks of information with a specified endtime <a href='http://morningcoffee.thelaclair.com' target="_blank">MorningCoffee - Live</a>
 
 ## How to Navigate
 
@@ -24,7 +24,7 @@ If you choose to clone this repo to make your own changes, run npm install once 
 
 ## Backend
 
-This app has its own corresponding backend, <a href='https://morning-coffee-backend-austin' target='_blank'>MorningCoffee - Backend</a>
+This app has its own corresponding backend, <a href='https://morning-coffee-backend-austin.herokuapp.com' target="_blank">MorningCoffee - Backend</a>
 
 ## Contributor/Owner
 * Austin LaClair
