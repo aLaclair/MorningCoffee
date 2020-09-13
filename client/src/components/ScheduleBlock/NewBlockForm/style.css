@@ -85,12 +85,13 @@ select {
     }
     .close-form:hover {
         background-color: white;
+        color: rgb(85, 47, 0);
     }
     .add-schedule-block:hover {
-        background-color: rgb(180, 180, 180);
+        background-color: rgb(189, 169, 146);
     }
     select:hover {
-        background-color: rgb(180, 180, 180);
+        background-color: rgb(189, 169, 146);
     }
     #end-label{
         bottom: 0px;

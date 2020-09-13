@@ -16,10 +16,10 @@
     justify-content: flex-start;
     margin: 0 auto;
     align-items: center;
-    background-color: rgb(133, 133, 133);
+    background-color: rgb(214, 202, 189);
     border-radius: 7px;
     padding-bottom: 20px;
-    color: rgb(231, 231, 231);
+    color: rgb(17, 17, 17);
     transition: 0.3s;
 }
 input {
@@ -64,7 +64,7 @@ hr {
         height: 30vh;
     }
     .login:hover, .create:hover {
-        background-color: rgb(228, 207, 181);
+        background-color: rgb(189, 169, 146);
         border-radius: 100px;
     }
 }
