@@ -26,6 +26,10 @@ If you choose to clone this repo to make your own changes, run npm install once 
 
 This app has its own corresponding backend, <a href='https://morning-coffee-backend-austin.herokuapp.com' target="_blank">MorningCoffee - Backend</a>
 
+## Screenshot
+
+<img src="./client/public/MorningCoffeeSS.png" alt="MorningCoffeeSS">
+
 ## Contributor/Owner
 * Austin LaClair
 
