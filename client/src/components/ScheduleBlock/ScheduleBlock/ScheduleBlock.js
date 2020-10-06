@@ -10,6 +10,7 @@ handleDescription = () => {
                 <h1 id='event'>{this.props.data.event}</h1>
                 <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
                 <p id='desc'>{this.props.data.description}</p>
+                <input type='checkbox'></input>
                 <p id='end-time'>{this.handleTimeConversion()}</p>
             </div>
         )
@@ -18,6 +19,7 @@ handleDescription = () => {
             <div className='schedule-block' data-aos='fade-zoom-in'>
                 <h1 id='event'>{this.props.data.event}</h1>
                 <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
+                <input type='checkbox' className={`check-${this.props.checked}`} id={this.props.data._id} onClick={this.props.checkClick}></input>
                 <p id='end-time'>{this.handleTimeConversion()}</p>
             </div>
         )

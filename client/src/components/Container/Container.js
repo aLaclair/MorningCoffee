@@ -180,7 +180,7 @@ class Container extends Component {
             return (
                 <>
                 {this.state.userData.map(b => (
-                    <ScheduleBlock  key={b._id} data={b} delete={this.handleDelete}/>
+                    <ScheduleBlock  key={b._id} data={b} checked={b.checked} checkClick={this.handleCheckClick} delete={this.handleDelete}/>
                 ))}
                 <AddBlock user={this.state.userId} mount={this.getUserData} click={this.handleAddClick} hide={this.state.addBlock}/>
                 <NewScheduleBlock show={this.state.newBlockShow} close={this.handleFormClose} onchange={this.handleOnChange} timeChange={this.handleTimeChange}
@@ -219,6 +219,15 @@ class Container extends Component {
        }).catch(err => {
            console.log(err)
        })
+    }
+
+    handleCheckClick = (e) => {
+        if (e.target.checked) {
+            e.target.className = 'check-true'
+            
+        } else {
+            e.target.className = 'check-false'
+        }
     }
 
     componentDidMount() {
