@@ -2,7 +2,7 @@
     src: url('../../Container/KumbhSans-Regular.ttf');
     font-family: body;
 }
-.schedule-block {
+.schedule-block-false, .schedule-block-true {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -15,6 +15,10 @@
     margin: 0 auto 10px;
     padding: 5px 10px 0;
     font-family: body;
+}
+.schedule-block-true{
+    background-color: rgba(78, 78, 78, 0.178);
+    color: rgb(95, 95, 95);
 }
 .desc {
     height: 17vh;
@@ -50,6 +54,11 @@
     background: none;
     border: none;
     transition: 0.3s;
+}
+.check-false, .check-true {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
 }
 
 @media screen and (min-width: 1080px) {

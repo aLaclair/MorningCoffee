@@ -6,20 +6,20 @@ class ScheduleBlock extends Component {
 handleDescription = () => {
     if(this.props.data.description) {
         return (
-            <div className='schedule-block desc' data-aos='fade-zoom-in'>
+            <div className={`schedule-block-${this.props.checked} desc`} data-aos='fade-zoom-in'>
                 <h1 id='event'>{this.props.data.event}</h1>
                 <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
                 <p id='desc'>{this.props.data.description}</p>
-                <input type='checkbox'></input>
+                <input type='checkbox' className={`check-${this.props.checked}`} id={this.props.data._id} onClick={this.props.checkClick} defaultChecked={this.props.checked}></input>
                 <p id='end-time'>{this.handleTimeConversion()}</p>
             </div>
         )
     } else {
         return (
-            <div className='schedule-block' data-aos='fade-zoom-in'>
+            <div className={`schedule-block-${this.props.checked} desc`} data-aos='fade-zoom-in'>
                 <h1 id='event'>{this.props.data.event}</h1>
                 <i id={this.props.data._id} onClick={this.props.delete} className="fa fa-trash icon-2x"></i>
-                <input type='checkbox' className={`check-${this.props.checked}`} id={this.props.data._id} onClick={this.props.checkClick}></input>
+                <input type='checkbox' className={`check-${this.props.checked}`} id={this.props.data._id} onClick={this.props.checkClick} defaultChecked={this.props.checked}></input>
                 <p id='end-time'>{this.handleTimeConversion()}</p>
             </div>
         )

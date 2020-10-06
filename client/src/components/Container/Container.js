@@ -223,10 +223,22 @@ class Container extends Component {
 
     handleCheckClick = (e) => {
         if (e.target.checked) {
+            e.target.parentElement.className = 'schedule-block-true desc aos-init aos-animate'
             e.target.className = 'check-true'
+            e.target.checked = true
+            axios.post(`https://morning-coffee-backend-austin.herokuapp.com/${e.target.id}/update`, {checked: true})
+            .then(res => {
+                console.log(res)
+            })
             
         } else {
+            e.target.parentElement.className = 'schedule-block-false desc aos-init aos-animate'
             e.target.className = 'check-false'
+            e.target.checked = false
+            axios.post(`https://morning-coffee-backend-austin.herokuapp.com/${e.target.id}/update`, {checked: false})
+            .then(res => {
+                console.log(res)
+            })
         }
     }
 
